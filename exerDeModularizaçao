@@ -1,0 +1,30 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+
+int funcao_c (int c);
+int funcao_b (int i);
+int funcao_a (int n);
+ 
+ 
+ int main () {
+ int result;
+ result = funcao_a(10);  //=>  1º Entra com a função a no valor 10
+ printf ("Resultado = %d" , result);
+ }
+
+ int funcao_c (int c) {
+ return (c/2); //4º Chega o valor de 6/2=3
+ }
+ int funcao_b (int i) { // => 3º Chega com o valor 9-3=6 // => 5º Volta o valor de 3 multiplicando por 3= 9 
+ int k;
+ k = funcao_c (i-3) * 3 ;
+ return (k);
+ }
+ int funcao_a (int n) {
+ int x;
+ x = funcao_b (n-1) + 6; //=> 2º chega o valor 10, como n-1= 10-1=9 //=>6º Volta o valor 9+6=15
+ return (x);
+ }
+ 
+ // Ou seja, o valor inicial passa por todos os parênteses primeiro, depois segue a ordem de *,/,+,- para a resolução da conta e volta para o resultado, printando o valor final
